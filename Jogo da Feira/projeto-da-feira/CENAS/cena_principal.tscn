@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt0jugj24rnru"]
+
+[ext_resource type="PackedScene" uid="uid://bidbqmg1cw6e2" path="res://CENAS/personagem.tscn" id="1_edxgb"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dx2mi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_edxgb"]
+size = Vector3(0.569092, 0.328979, 1)
+
+[node name="cena_principal" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0)
+mesh = SubResource("PlaneMesh_dx2mi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(3.50689, 0, 0, 0, 3, 0, 0, 0, 1.96791, 0.00385288, -0.491783, 0)
+shape = SubResource("BoxShape3D_edxgb")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_edxgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.408774, 0.643745)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.836994, 0.547213, 0, -0.547213, 0.836994, 1.57039, 3.54347, 5.04025)
