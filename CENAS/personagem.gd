@@ -1,8 +1,8 @@
 extends CharacterBody3D
+@onready var anima = $AnimatedSprite3D
 
-
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const SPEED : float = 5.0
+const JUMP_VELOCITY : float = 4.5
 
 
 func _physics_process(delta: float) -> void:
@@ -26,3 +26,11 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	if Input.is_action_just_pressed("ui_left"):
+		anima.play("left_walking")
+	if Input.is_action_just_pressed("ui_right"):
+		anima.play("right_walking")
+	if Input.is_action_just_pressed("ui_up"):
+		anima.play("front_walking")
+	if Input.is_action_just_pressed("ui_down"):
+		anima.play("back_walking")

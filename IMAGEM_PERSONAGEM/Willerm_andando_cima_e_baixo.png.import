@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btdoiqlivlrei"
-path.bptc="res://.godot/imported/PLACEHOLDER_V1.png-9f5e23246b1588850aed087c73c8f04e.bptc.ctex"
+uid="uid://bbry246qf6als"
+path.bptc="res://.godot/imported/Willerm_andando_cima_e_baixo.png-c8e62198c1b7f5a50595c7376cb71102.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://IMAGEM_PERSONAGEM/PLACEHOLDER_V1.png"
-dest_files=["res://.godot/imported/PLACEHOLDER_V1.png-9f5e23246b1588850aed087c73c8f04e.bptc.ctex"]
+source_file="res://IMAGEM_PERSONAGEM/Willerm_andando_cima_e_baixo.png"
+dest_files=["res://.godot/imported/Willerm_andando_cima_e_baixo.png-c8e62198c1b7f5a50595c7376cb71102.bptc.ctex"]
 
 [params]
 
