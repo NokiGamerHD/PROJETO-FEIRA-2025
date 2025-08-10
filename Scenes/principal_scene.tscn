@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt0jugj24rnru"]
+
+[ext_resource type="PackedScene" uid="uid://c4i71dn57x7os" path="res://Scenes/level_map.tscn" id="2_7dxlw"]
+[ext_resource type="PackedScene" uid="uid://1c02dvcs5cbc" path="res://Character/player.tscn" id="2_8mbap"]
+
+[sub_resource type="Environment" id="Environment_7dxlw"]
+background_mode = 1
+
+[node name="principal_scene" type="Node3D"]
+metadata/_edit_lock_ = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.836994, 0.547213, 0, -0.547213, 0.836994, 0, 1.63655, 1.512)
+light_energy = 3.344
+
+[node name="cenario" parent="." instance=ExtResource("2_7dxlw")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7dxlw")
+
+[node name="Player" parent="." instance=ExtResource("2_8mbap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
