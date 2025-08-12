@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnwkqox5t06ku"]
+
+[ext_resource type="Texture2D" uid="uid://c62l7pwqdf7mx" path="res://Art/NPCs/Soldado 2.png" id="1_0hcdq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h74o0"]
+atlas = ExtResource("1_0hcdq")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6aiuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h74o0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0hcdq"]
+size = Vector3(0.132263, 0.0912476, 0.130005)
+
+[node name="Soldado2" type="CharacterBody3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 2
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_6aiuq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00405884, -0.114777, -0.00469971)
+shape = SubResource("BoxShape3D_0hcdq")

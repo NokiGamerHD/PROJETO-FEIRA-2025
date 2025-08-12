@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://1c02dvcs5cbc"]
+[gd_scene load_steps=30 format=3 uid="uid://1c02dvcs5cbc"]
 
 [ext_resource type="Script" uid="uid://co4pnjlmorjwf" path="res://Character/player.gd" id="1_3c51y"]
 [ext_resource type="Texture2D" uid="uid://s1yq3vnnxulx" path="res://Art/Player/Willerm_Sprites.png" id="1_6ele1"]
+[ext_resource type="Shader" uid="uid://c85yyu7hdw8jy" path="res://Character/player.gdshader" id="3_2brrg"]
 
 [sub_resource type="Animation" id="Animation_3c51y"]
 step = 0.2
@@ -458,12 +459,19 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ele1"]
 size = Vector3(0.131119, 0.090332, 0.131287)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fn4pq"]
+shader = ExtResource("3_2brrg")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/multiplier = 0.2
+shader_parameter/softness = 0.9
+
 [node name="Player" type="CharacterBody3D"]
 motion_mode = 1
 script = ExtResource("1_3c51y")
 
 [node name="Body" type="Sprite3D" parent="."]
 billboard = 2
+alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("1_6ele1")
 hframes = 4
@@ -488,4 +496,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00461578, -0.11499, -0.0045
 shape = SubResource("BoxShape3D_6ele1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.835807, 0.549023, 0, -0.549023, 0.835807, 0, 0.265502, 0.558686)
+transform = Transform3D(1, 0, 0, 0, 0.835807, 0.549023, 0, -0.549023, 0.835807, 0, 0.609997, 0.926548)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera3D/CanvasLayer"]
+material = SubResource("ShaderMaterial_fn4pq")
+offset_right = 854.0
+offset_bottom = 480.0

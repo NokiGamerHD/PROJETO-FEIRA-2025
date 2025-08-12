@@ -2,22 +2,25 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dti7pw8lha2sh"
-path.bptc="res://.godot/imported/Soldado 1.png-046e71b9edeb7a40ddbc8314fec197a8.bptc.ctex"
+uid="uid://d0b7nocssn555"
+path.s3tc="res://.godot/imported/TESTE_1.png-1467041270663e7e4d9b0d78b68c0df2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "17ab74249b99e96a0bbba519ad6bc637"
+}
 
 [deps]
 
-source_file="res://Art/NPCs/Soldado 1.png"
-dest_files=["res://.godot/imported/Soldado 1.png-046e71b9edeb7a40ddbc8314fec197a8.bptc.ctex"]
+source_file="res://3D Objects/TESTE_1.png"
+dest_files=["res://.godot/imported/TESTE_1.png-1467041270663e7e4d9b0d78b68c0df2.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

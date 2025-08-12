@@ -2,22 +2,25 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dti7pw8lha2sh"
-path.bptc="res://.godot/imported/Soldado 1.png-046e71b9edeb7a40ddbc8314fec197a8.bptc.ctex"
+uid="uid://kk5cvtvccp66"
+path.s3tc="res://.godot/imported/chão rebelde_2.png-8726454b92a3e81c84b81c0b92afdd87.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "869a204d3060d3639a3e8a1d33c32b84"
+}
 
 [deps]
 
-source_file="res://Art/NPCs/Soldado 1.png"
-dest_files=["res://.godot/imported/Soldado 1.png-046e71b9edeb7a40ddbc8314fec197a8.bptc.ctex"]
+source_file="res://3D Objects/chão rebelde_2.png"
+dest_files=["res://.godot/imported/chão rebelde_2.png-8726454b92a3e81c84b81c0b92afdd87.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

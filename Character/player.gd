@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var speed : float = 5.0
+@export var speed : float = 2.50
 
 @onready var animation_tree : AnimationTree = $AnimationTree
 
