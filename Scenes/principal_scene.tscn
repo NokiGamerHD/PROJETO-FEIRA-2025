@@ -1,9 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dt0jugj24rnru"]
+[gd_scene load_steps=32 format=3 uid="uid://dt0jugj24rnru"]
 
-[ext_resource type="Script" uid="uid://bp4ulbdk6c04o" path="res://Scenes/principal_scene.gd" id="1_0yh71"]
+[ext_resource type="Script" uid="uid://bp4ulbdk6c04o" path="res://Scripts/principal_scene.gd" id="1_0yh71"]
 [ext_resource type="PackedScene" uid="uid://c4i71dn57x7os" path="res://Scenes/level_map.tscn" id="2_7dxlw"]
 [ext_resource type="PackedScene" uid="uid://1c02dvcs5cbc" path="res://Character/player.tscn" id="2_8mbap"]
 [ext_resource type="PackedScene" uid="uid://dnwkqox5t06ku" path="res://Character/soldado_2.tscn" id="3_7rksm"]
+[ext_resource type="PackedScene" uid="uid://ddw0qvvdoaqmx" path="res://3D Objects/Alojamentos/01/Alojamento1.tscn" id="6_vmgaj"]
+[ext_resource type="PackedScene" uid="uid://c2uejk86jfwwp" path="res://Character/cabo_1.tscn" id="7_8gklg"]
+[ext_resource type="PackedScene" uid="uid://bt2a1rife7x25" path="res://Scenes/ui.tscn" id="8_8gklg"]
+[ext_resource type="PackedScene" uid="uid://xn26e2fuqpce" path="res://Character/cabo_2.tscn" id="8_phmp1"]
+[ext_resource type="Script" uid="uid://b3gj5ocbrse8f" path="res://Scripts/soldado_walk_path.gd" id="9_7aedu"]
+[ext_resource type="Texture2D" uid="uid://dti7pw8lha2sh" path="res://Art/NPCs/Soldados/Soldado 1.png" id="10_7aedu"]
+[ext_resource type="PackedScene" uid="uid://cc7rxjibpao6l" path="res://Character/soldado1.tscn" id="11_lxrs5"]
 
 [sub_resource type="Environment" id="Environment_7dxlw"]
 background_mode = 1
@@ -12,13 +19,9 @@ ambient_light_color = Color(0.287797, 0.0734468, 0.233149, 1)
 ambient_light_energy = 1.87
 reflected_light_source = 2
 ssr_max_steps = 32
-ssr_fade_in = 0.15
-ssr_fade_out = 2.0
-ssil_enabled = true
 ssil_intensity = 3.0
 ssil_sharpness = 0.3
 sdfgi_use_occlusion = true
-glow_enabled = true
 glow_normalized = true
 glow_intensity = 2.0
 glow_strength = 1.05
@@ -27,36 +30,233 @@ fog_enabled = true
 fog_light_color = Color(0.223529, 0.670588, 0.533333, 1)
 fog_light_energy = 1.85
 fog_sky_affect = 0.44
-adjustment_enabled = true
 adjustment_brightness = 1.2
 adjustment_contrast = 1.1
 
+[sub_resource type="Curve3D" id="Curve3D_8gklg"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.015, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, 5, 0, 2.5, 0, 0, 0, 0, 0, 0, 5, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuyeu"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glguw"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiben"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qio7u"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqlks"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alpsf"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmf51"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1n7e"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v0l1"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aedu"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxrs5"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x4at"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asvue"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmxa8"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5pls"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpxgi"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8gom"]
+atlas = ExtResource("10_7aedu")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lxrs5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuyeu")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glguw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiben")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qio7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqlks")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alpsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmf51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1n7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v0l1")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aedu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxrs5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x4at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asvue")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmxa8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5pls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpxgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8gom")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
 [node name="principal_scene" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_0yh71")
-metadata/_edit_lock_ = true
 
 [node name="cenario" parent="." instance=ExtResource("2_7dxlw")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.259, -0.5, -0.0556889)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.860715, -0.5, -139.917)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+process_mode = 3
 environment = SubResource("Environment_7dxlw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.885345, -0.254418, 0.389147, 0, 0.836994, 0.547213, -0.464935, -0.484472, 0.741028, 9.03467, 13.5904, 2.61258)
-light_energy = 0.6
+light_energy = 0.3
 light_indirect_energy = 2.0
 shadow_enabled = true
 shadow_normal_bias = 1.0
 shadow_blur = 1.5
 
 [node name="Player" parent="." instance=ExtResource("2_8mbap")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22, 1.48126)
 
-[node name="Soldado2" parent="." instance=ExtResource("3_7rksm")]
+[node name="Soldado1_1" parent="." instance=ExtResource("3_7rksm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92748, 0.22, -5.14977)
 
-[node name="Soldado3" parent="." instance=ExtResource("3_7rksm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.851, 0.22, -5.14977)
+[node name="Soldado1_2" parent="Soldado1_1" instance=ExtResource("3_7rksm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.92352, 0, 0)
 
-[node name="Soldado4" parent="." instance=ExtResource("3_7rksm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.97691, 0.22, -5.14977)
+[node name="Soldado1_3" parent="Soldado1_1" instance=ExtResource("3_7rksm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04943, 0, 0)
+
+[node name="Soldado2_1" parent="." instance=ExtResource("3_7rksm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40606, 0.22, -6.74966)
+
+[node name="Soldado2_2" parent="Soldado2_1" instance=ExtResource("3_7rksm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4252, 0, 0)
+
+[node name="Soldado2_3" parent="Soldado2_1" instance=ExtResource("3_7rksm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86612, 0, 0)
+
+[node name="blockbench_export" parent="." instance=ExtResource("6_vmgaj")]
+transform = Transform3D(-1.96701e-08, 0, 0.45, 0, 0.45, 0, -0.45, 0, -1.96701e-08, -2.52182, 0, -2.25938)
+metadata/_edit_lock_ = true
+
+[node name="Cabo1" parent="." instance=ExtResource("7_8gklg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6448, 0.22, -3.97484)
+
+[node name="Cabo2" parent="." instance=ExtResource("8_phmp1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3485, 0.22, -3.97484)
+
+[node name="UI" parent="." instance=ExtResource("8_8gklg")]
+visible = false
+
+[node name="Soldado_Andando" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.602, 0.2, 0)
+curve = SubResource("Curve3D_8gklg")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Soldado_Andando"]
+transform = Transform3D(-0.99998, 0, -0.00599991, 0, 0.999991, 0, 0.00599991, 0, -0.99998, -0.015, 0, 0)
+tilt_enabled = false
+script = ExtResource("9_7aedu")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Soldado_Andando/PathFollow3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022, 0)
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_lxrs5")
+animation = &"walk_right"
+
+[node name="Soldado" parent="Soldado_Andando/PathFollow3D/AnimatedSprite3D" instance=ExtResource("11_lxrs5")]
+transform = Transform3D(-0.999984, 0, 0.00599993, 0, 1.00001, 0, -0.00599993, 0, -0.999984, -0.015, 0, 0)
+visible = false

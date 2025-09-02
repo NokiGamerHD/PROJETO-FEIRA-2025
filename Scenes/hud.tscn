@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn23om8tkmxbd"]
+
+[ext_resource type="PackedScene" uid="uid://bt2a1rife7x25" path="res://Scenes/ui.tscn" id="1_e0onf"]
+[ext_resource type="Script" uid="uid://dsydvkj2u54qt" path="res://Scenes/hud.gd" id="1_piegi"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_piegi")
+
+[node name="UI" parent="." instance=ExtResource("1_e0onf")]
+visible = false

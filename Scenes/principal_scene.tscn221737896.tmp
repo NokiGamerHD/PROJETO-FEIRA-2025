@@ -1,0 +1,106 @@
+[gd_scene load_steps=13 format=3 uid="uid://dt0jugj24rnru"]
+
+[ext_resource type="Script" path="res://Scenes/principal_scene.gd" id="1_0yh71"]
+[ext_resource type="PackedScene" uid="uid://c4i71dn57x7os" path="res://Scenes/level_map.tscn" id="2_7dxlw"]
+[ext_resource type="PackedScene" uid="uid://1c02dvcs5cbc" path="res://Character/player.tscn" id="2_8mbap"]
+[ext_resource type="PackedScene" uid="uid://dnwkqox5t06ku" path="res://Character/soldado_2.tscn" id="3_7rksm"]
+[ext_resource type="PackedScene" uid="uid://ddw0qvvdoaqmx" path="res://3D Objects/Alojamentos/01/Alojamento1.tscn" id="6_vmgaj"]
+[ext_resource type="PackedScene" uid="uid://c2uejk86jfwwp" path="res://Character/cabo_1.tscn" id="7_8gklg"]
+[ext_resource type="PackedScene" uid="uid://bt2a1rife7x25" path="res://Scenes/ui.tscn" id="8_8gklg"]
+[ext_resource type="PackedScene" uid="uid://xn26e2fuqpce" path="res://Character/cabo_2.tscn" id="8_phmp1"]
+[ext_resource type="Script" uid="uid://b3gj5ocbrse8f" path="res://Scripts/path_follow.gd" id="9_7aedu"]
+[ext_resource type="PackedScene" uid="uid://cc7rxjibpao6l" path="res://Character/soldado1.tscn" id="9_phmp1"]
+
+[sub_resource type="Environment" id="Environment_7dxlw"]
+background_mode = 1
+background_color = Color(0.0353295, 0.275761, 0.223978, 1)
+ambient_light_color = Color(0.287797, 0.0734468, 0.233149, 1)
+ambient_light_energy = 1.87
+reflected_light_source = 2
+ssr_max_steps = 32
+ssil_intensity = 3.0
+ssil_sharpness = 0.3
+sdfgi_use_occlusion = true
+glow_normalized = true
+glow_intensity = 2.0
+glow_strength = 1.05
+glow_bloom = 0.2
+fog_enabled = true
+fog_light_color = Color(0.223529, 0.670588, 0.533333, 1)
+fog_light_energy = 1.85
+fog_sky_affect = 0.44
+adjustment_brightness = 1.2
+adjustment_contrast = 1.1
+
+[sub_resource type="Curve3D" id="Curve3D_8gklg"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.015, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, 5, 0, 2.5, 0, 0, 0, 0, 0, 0, 5, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="principal_scene" type="Node3D"]
+process_mode = 1
+script = ExtResource("1_0yh71")
+
+[node name="cenario" parent="." instance=ExtResource("2_7dxlw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.860715, -0.5, -139.917)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+process_mode = 3
+environment = SubResource("Environment_7dxlw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.885345, -0.254418, 0.389147, 0, 0.836994, 0.547213, -0.464935, -0.484472, 0.741028, 9.03467, 13.5904, 2.61258)
+light_energy = 0.3
+light_indirect_energy = 2.0
+shadow_enabled = true
+shadow_normal_bias = 1.0
+shadow_blur = 1.5
+
+[node name="Player" parent="." instance=ExtResource("2_8mbap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22, 1.48126)
+
+[node name="Soldado1_1" parent="." instance=ExtResource("3_7rksm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92748, 0.22, -5.14977)
+
+[node name="Soldado1_2" parent="Soldado1_1" instance=ExtResource("3_7rksm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.92352, 0, 0)
+
+[node name="Soldado1_3" parent="Soldado1_1" instance=ExtResource("3_7rksm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04943, 0, 0)
+
+[node name="Soldado2_1" parent="." instance=ExtResource("3_7rksm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40606, 0.22, -6.74966)
+
+[node name="Soldado2_2" parent="Soldado2_1" instance=ExtResource("3_7rksm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4252, 0, 0)
+
+[node name="Soldado2_3" parent="Soldado2_1" instance=ExtResource("3_7rksm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86612, 0, 0)
+
+[node name="blockbench_export" parent="." instance=ExtResource("6_vmgaj")]
+transform = Transform3D(-1.96701e-08, 0, 0.45, 0, 0.45, 0, -0.45, 0, -1.96701e-08, -2.52182, 0, -2.25938)
+metadata/_edit_lock_ = true
+
+[node name="Cabo1" parent="." instance=ExtResource("7_8gklg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6448, 0.22, -3.97484)
+
+[node name="Cabo2" parent="." instance=ExtResource("8_phmp1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3485, 0.22, -3.97484)
+
+[node name="UI" parent="." instance=ExtResource("8_8gklg")]
+visible = false
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.602, 0.2, 0)
+curve = SubResource("Curve3D_8gklg")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.99998, 0, -0.00599991, 0, 0.999991, 0, 0.00599991, 0, -0.99998, -0.015, 0, 0)
+tilt_enabled = false
+script = ExtResource("9_7aedu")
+
+[node name="Soldado" parent="Path3D/PathFollow3D" instance=ExtResource("9_phmp1")]
+script = null

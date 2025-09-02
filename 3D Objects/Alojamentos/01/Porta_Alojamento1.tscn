@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://8ev04xo5vmvu"]
+
+[ext_resource type="PackedScene" uid="uid://ytc65gdeodlq" path="res://3D Objects/Alojamentos/01/Porta.gltf" id="1_llcg4"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_omjhn"]
+data = PackedVector3Array(0.0313, 0.6875, -0.2813, 0.0313, 0, 0.2813, 0.0313, 0.6875, 0.2813, 0.0313, 0.6875, -0.2813, 0.0313, 0, -0.2813, 0.0313, 0, 0.2813, -0.0313, 0, 0.2813, -0.0313, 0.6875, -0.2813, -0.0313, 0.6875, 0.2813, -0.0313, 0, 0.2813, -0.0313, 0, -0.2813, -0.0313, 0.6875, -0.2813, -0.0313, 0.6875, 0.2813, 0.0313, 0.6875, -0.2813, 0.0313, 0.6875, 0.2813, -0.0313, 0.6875, 0.2813, -0.0313, 0.6875, -0.2813, 0.0313, 0.6875, -0.2813, 0.0313, 0, -0.2813, -0.0313, 0, 0.2813, 0.0313, 0, 0.2813, 0.0313, 0, -0.2813, -0.0313, 0, -0.2813, -0.0313, 0, 0.2813, 0.0313, 0, 0.2813, -0.0313, 0.6875, 0.2813, 0.0313, 0.6875, 0.2813, 0.0313, 0, 0.2813, -0.0313, 0, 0.2813, -0.0313, 0.6875, 0.2813, -0.0313, 0.6875, -0.2813, 0.0313, 0, -0.2813, 0.0313, 0.6875, -0.2813, -0.0313, 0.6875, -0.2813, -0.0313, 0, -0.2813, 0.0313, 0, -0.2813)
+
+[sub_resource type="Animation" id="Animation_3r5dv"]
+resource_name = "Close_door"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_llcg4"]
+resource_name = "Open_door"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_omjhn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g43ab"]
+_data = {
+&"Close_door": SubResource("Animation_3r5dv"),
+&"Open_door": SubResource("Animation_llcg4"),
+&"RESET": SubResource("Animation_omjhn")
+}
+
+[node name="blockbench_export" instance=ExtResource("1_llcg4")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node/cuboid" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/cuboid/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_omjhn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_g43ab")
+}
+autoplay = "Open_door"

@@ -1,8 +1,8 @@
 [gd_scene load_steps=30 format=3 uid="uid://1c02dvcs5cbc"]
 
-[ext_resource type="Script" uid="uid://co4pnjlmorjwf" path="res://Character/player.gd" id="1_3c51y"]
+[ext_resource type="Script" uid="uid://co4pnjlmorjwf" path="res://Scripts/player.gd" id="1_3c51y"]
 [ext_resource type="Texture2D" uid="uid://s1yq3vnnxulx" path="res://Art/Player/Willerm_Sprites.png" id="1_6ele1"]
-[ext_resource type="Shader" uid="uid://c85yyu7hdw8jy" path="res://Character/player.gdshader" id="3_2brrg"]
+[ext_resource type="Shader" uid="uid://c85yyu7hdw8jy" path="res://Scripts/player.gdshader" id="3_2brrg"]
 
 [sub_resource type="Animation" id="Animation_3c51y"]
 step = 0.2
@@ -409,8 +409,8 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_fn4pq")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_raa3c")
 blend_point_3/pos = Vector2(0, -1.1)
-min_space = Vector2(-1, -1.1)
-max_space = Vector2(1, 1.1)
+min_space = Vector2(-1.1, -1)
+max_space = Vector2(1.1, 1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tp31j"]
@@ -434,8 +434,8 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_76vsb")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_crn8y")
 blend_point_3/pos = Vector2(0, -1.1)
-min_space = Vector2(-1, -1.1)
-max_space = Vector2(1, 1.1)
+min_space = Vector2(-1.1, -1)
+max_space = Vector2(1.1, 1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fn4pq"]
@@ -489,18 +489,19 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false
 parameters/conditions/is_moving = false
 parameters/Idle/blend_position = 0
-parameters/Walk/blend_position = Vector2(0.0047847, -1.04081)
+parameters/Walk/blend_position = Vector2(-0.454955, 0.098901)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00461578, -0.11499, -0.00454712)
 shape = SubResource("BoxShape3D_6ele1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.835807, 0.549023, 0, -0.549023, 0.835807, 0, 0.609997, 0.926548)
+transform = Transform3D(0.999931, 0.00544887, 0.0103761, -0.0101695, 0.843471, 0.537078, -0.00582551, -0.537147, 0.843469, 0, 0.607764, 1.11281)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
+[node name="Fade" type="CanvasLayer" parent="Camera3D"]
+layer = 0
 
-[node name="ColorRect" type="ColorRect" parent="Camera3D/CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="Camera3D/Fade"]
 material = SubResource("ShaderMaterial_fn4pq")
 offset_right = 854.0
 offset_bottom = 480.0

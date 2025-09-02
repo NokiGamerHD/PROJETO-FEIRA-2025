@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2uejk86jfwwp"]
+
+[ext_resource type="Texture2D" uid="uid://bc1gp1y5wfxfe" path="res://Art/NPCs/Cabos/Cabo1.png" id="2_lmi1k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lmi1k"]
+size = Vector3(0.102539, 0.0920258, 0.102783)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4234y"]
+atlas = ExtResource("2_lmi1k")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ulyb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4234y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Cabo1" type="CharacterBody3D"]
+
+[node name="Body" type="Sprite3D" parent="."]
+billboard = 2
+texture_filter = 0
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000488281, -0.114723, 0.000854492)
+shape = SubResource("BoxShape3D_lmi1k")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_5ulyb")
+animation = &"idle"

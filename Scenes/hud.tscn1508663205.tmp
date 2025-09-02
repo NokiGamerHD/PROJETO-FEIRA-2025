@@ -1,0 +1,291 @@
+[gd_scene load_steps=20 format=3 uid="uid://dn23om8tkmxbd"]
+
+[ext_resource type="Script" uid="uid://b6eixa7b3k8od" path="res://Scenes/hud.gd" id="1_piegi"]
+[ext_resource type="Texture2D" uid="uid://8sad8tfhvtn6" path="res://Art/Hud/tab_small.png" id="2_i2avg"]
+[ext_resource type="Texture2D" uid="uid://d1gqc6t51n35v" path="res://Art/Hud/health_bar.png" id="3_1a2va"]
+[ext_resource type="Texture2D" uid="uid://3vhsfrasxsy3" path="res://Art/Hud/coin.png" id="4_ssfue"]
+[ext_resource type="Texture2D" uid="uid://cvxog6t0y2a6w" path="res://Art/Hud/red_idle.png" id="5_8bf2m"]
+[ext_resource type="Texture2D" uid="uid://yd6kyqls8cix" path="res://Art/Hud/red_pressed.png" id="6_ba8gd"]
+[ext_resource type="Texture2D" uid="uid://cbfifynqnxbeg" path="res://Art/Hud/blue_idle.png" id="7_36s6t"]
+[ext_resource type="Texture2D" uid="uid://p0ec3bp4islr" path="res://Art/Hud/blue_pressed.png" id="8_pbtju"]
+[ext_resource type="Texture2D" uid="uid://dgy1gsdj562gg" path="res://Art/Hud/yellow_idle.png" id="9_yidpd"]
+[ext_resource type="Texture2D" uid="uid://b4r33n05gjhr4" path="res://Art/Hud/yellow_pressed.png" id="10_0iicw"]
+[ext_resource type="Texture2D" uid="uid://jyau5nu2t5i" path="res://Art/Hud/green_idle.png" id="11_ajim5"]
+[ext_resource type="Texture2D" uid="uid://d0smsmuurbrwo" path="res://Art/Hud/green_pressed.png" id="12_vxf74"]
+[ext_resource type="Texture2D" uid="uid://tmpup814jfe7" path="res://Art/Hud/tab_big.png" id="13_i2avg"]
+[ext_resource type="Texture2D" uid="uid://6hithpysfejg" path="res://Art/Hud/cog_idle.png" id="14_1a2va"]
+[ext_resource type="Texture2D" uid="uid://b5rdl7f0p6yh0" path="res://Art/Hud/grey_idle.png" id="14_ba8gd"]
+[ext_resource type="Texture2D" uid="uid://b1fk5pr1r0008" path="res://Art/Hud/grey_pressed.png" id="15_36s6t"]
+[ext_resource type="Texture2D" uid="uid://b868awjbthay0" path="res://Art/Hud/cog_cursor.png" id="15_ssfue"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oersf"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pbtju"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_piegi")
+
+[node name="Status" type="Control" parent="."]
+custom_minimum_size = Vector2(208, 128)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -160.0
+offset_right = 240.0
+offset_bottom = -32.0
+grow_vertical = 0
+
+[node name="Fundo_Status" type="TextureRect" parent="Status"]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 128.0
+texture = ExtResource("2_i2avg")
+
+[node name="Health_Bar" type="TextureRect" parent="Status/Fundo_Status"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 203.0
+offset_bottom = 43.0
+texture = ExtResource("3_1a2va")
+
+[node name="Money" type="TextureRect" parent="Status/Fundo_Status"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 50.0
+offset_right = 49.0
+offset_bottom = 90.0
+texture = ExtResource("4_ssfue")
+
+[node name="Player_Name" type="Label" parent="Status/Fundo_Status"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 22.0
+offset_top = 87.0
+offset_right = 177.0
+offset_bottom = 123.0
+text = "Player Name"
+label_settings = SubResource("LabelSettings_oersf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fundo_Sector" type="TextureRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -160.0
+offset_right = 104.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_i2avg")
+
+[node name="Sectors" type="VBoxContainer" parent="Fundo_Sector"]
+custom_minimum_size = Vector2(208, 128)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -106.0
+offset_right = 122.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Red_Button" type="TextureButton" parent="Fundo_Sector/Sectors"]
+layout_mode = 2
+texture_normal = ExtResource("5_8bf2m")
+texture_hover = ExtResource("6_ba8gd")
+texture_focused = ExtResource("6_ba8gd")
+
+[node name="Blue_Button" type="TextureButton" parent="Fundo_Sector/Sectors"]
+layout_mode = 2
+texture_normal = ExtResource("7_36s6t")
+texture_hover = ExtResource("8_pbtju")
+texture_focused = ExtResource("8_pbtju")
+
+[node name="Yellow_Button" type="TextureButton" parent="Fundo_Sector/Sectors"]
+layout_mode = 2
+texture_normal = ExtResource("9_yidpd")
+texture_hover = ExtResource("10_0iicw")
+texture_focused = ExtResource("10_0iicw")
+
+[node name="Green_Button" type="TextureButton" parent="Fundo_Sector/Sectors"]
+layout_mode = 2
+texture_normal = ExtResource("11_ajim5")
+texture_hover = ExtResource("12_vxf74")
+texture_focused = ExtResource("12_vxf74")
+
+[node name="Fundo_Red" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -160.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("13_i2avg")
+
+[node name="Red_Items" type="VBoxContainer" parent="Fundo_Red"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 216.0
+offset_bottom = 327.0
+
+[node name="Arrow" type="TextureButton" parent="Fundo_Red/Red_Items"]
+layout_mode = 2
+texture_normal = ExtResource("14_ba8gd")
+texture_pressed = ExtResource("15_36s6t")
+
+[node name="Item" type="Label" parent="Fundo_Red/Red_Items/Arrow"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -5.0
+offset_right = 65.0
+offset_bottom = 18.0
+text = "Item 1"
+label_settings = SubResource("LabelSettings_pbtju")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fundo_Blue" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -160.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("13_i2avg")
+
+[node name="Blue_Items" type="VBoxContainer" parent="Fundo_Blue"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 215.0
+offset_bottom = 327.0
+
+[node name="Arrow" type="TextureButton" parent="Fundo_Blue/Blue_Items"]
+layout_mode = 2
+texture_normal = ExtResource("14_ba8gd")
+texture_pressed = ExtResource("15_36s6t")
+
+[node name="Item" type="Label" parent="Fundo_Blue/Blue_Items/Arrow"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -5.0
+offset_right = 65.0
+offset_bottom = 18.0
+text = "Item 1"
+label_settings = SubResource("LabelSettings_pbtju")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fundo_Yellow" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -160.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("13_i2avg")
+
+[node name="Yellow_Items" type="VBoxContainer" parent="Fundo_Yellow"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 215.0
+offset_bottom = 327.0
+
+[node name="Arrow" type="TextureButton" parent="Fundo_Yellow/Yellow_Items"]
+layout_mode = 2
+texture_normal = ExtResource("14_ba8gd")
+texture_pressed = ExtResource("15_36s6t")
+
+[node name="Item" type="Label" parent="Fundo_Yellow/Yellow_Items/Arrow"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -5.0
+offset_right = 65.0
+offset_bottom = 18.0
+text = "Item 1"
+label_settings = SubResource("LabelSettings_pbtju")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fundo_Green" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -160.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("13_i2avg")
+
+[node name="Green_Items" type="VBoxContainer" parent="Fundo_Green"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 215.0
+offset_bottom = 327.0
+
+[node name="Arrow" type="TextureButton" parent="Fundo_Green/Green_Items"]
+layout_mode = 2
+texture_normal = ExtResource("14_ba8gd")
+texture_pressed = ExtResource("15_36s6t")
+
+[node name="Item" type="Label" parent="Fundo_Green/Green_Items/Arrow"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -5.0
+offset_right = 65.0
+offset_bottom = 18.0
+text = "Item 1"
+label_settings = SubResource("LabelSettings_pbtju")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Config" type="TextureButton" parent="."]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 60.0
+offset_bottom = 59.0
+texture_normal = ExtResource("14_1a2va")
+texture_hover = ExtResource("15_ssfue")
+
+[connection signal="focus_entered" from="Fundo_Sector/Sectors/Red_Button" to="." method="_on_red_button_focus_entered"]
+[connection signal="focus_entered" from="Fundo_Sector/Sectors/Blue_Button" to="." method="_on_blue_button_focus_entered"]
+[connection signal="focus_entered" from="Fundo_Sector/Sectors/Yellow_Button" to="." method="_on_yellow_button_focus_entered"]
+[connection signal="focus_entered" from="Fundo_Sector/Sectors/Green_Button" to="." method="_on_green_button_focus_entered"]
